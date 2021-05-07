@@ -1,0 +1,30 @@
+#table-container table {
+  border-spacing: 0;
+}
+
+#table-container td {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+}
+
+#table-container td.selected {
+  background-color: blue;
+}
+
+#table-container tr:first-child td {
+  border-top: 2px solid black;
+}
+
+#table-container tr:last-child td {
+  border-bottom: 2px solid black;
+}
+
+#table-container td:last-child {
+  border-right: 2px solid black;
+}
+
+#table-container td:first-child {
+  border-left: 2px solid black;
+}

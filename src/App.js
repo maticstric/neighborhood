@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './app.css';
 
-function App() {
+import Table from './components/table/table.js';
+
+const App = (props) => {
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [size, setSize] = useState(10);
+  const [table, setTable] = useState([]);
+
+  useEffect(() => {
+    let newTable = [];
+
+    for (let i = 0; i < size * size; i++) {
+      newTable.push(false);
+    }
+
+    setTable(newTable);
+  }, [size]);
+
+  const handleOnMouseDown = () => {
+    setIsMouseDown(true);
+  }
+
+  const handleOnMouseUp = () => {
+    setIsMouseDown(false);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="app" onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
+      <Table
+        isMouseDown={isMouseDown}
+        table={table}
+        setTable={setTable}
+      />
     </div>
   );
 }
