@@ -5,7 +5,7 @@ import Table from './components/table/table.js';
 
 const App = (props) => {
   const [isMouseDown, setIsMouseDown] = useState(false);
-  const [size, setSize] = useState(10);
+  const [size, setSize] = useState(11);
   const [table, setTable] = useState([]);
 
   useEffect(() => {
@@ -28,11 +28,13 @@ const App = (props) => {
 
   return (
     <div id="app" onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
-      <Table
-        isMouseDown={isMouseDown}
-        table={table}
-        setTable={setTable}
-      />
+      <div id="center">
+        <Table
+          isMouseDown={isMouseDown}
+          table={table}
+          setTable={setTable}
+        />
+      </div>
     </div>
   );
 }

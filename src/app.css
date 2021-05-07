@@ -1,0 +1,21 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --dark-grey: #4c4e57;
+  --light-grey: #ccd3d9;
+  --dark-purple: #7b2cbf;
+  --light-purple: #c77dff;
+}
+
+#app {                                                                          
+  height: 100vh;                                                                
+  background: var(--dark-grey);                                                      
+  display: flex;                                                                
+  justify-content: space-around;                                                
+}   
+
+#app > #center {                                                                
+  display: flex;                                                                
+  flex-direction: column;                                                       
+  text-align: center;                                                           
+} 

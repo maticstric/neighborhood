@@ -51,23 +51,32 @@ const Table = (props) => {
       let index = i * tableSize + j;
       let key = `${index}`
 
-      if (props.table[index]) {
+      if (index === Math.floor((tableSize * tableSize) / 2)) {
         cells.push(
           <td 
             key={key} 
             data-key={key} 
-            onMouseOver={handleOnMouseOver} 
-            onMouseDown={handleOnMouseDown} 
-            className="selected"
+            className="center"
           ></td>);
       } else {
-        cells.push(
-          <td 
-            key={key} 
-            data-key={key} 
-            onMouseOver={handleOnMouseOver} 
-            onMouseDown={handleOnMouseDown} 
-          ></td>);
+        if (props.table[index]) {
+          cells.push(
+            <td 
+              key={key} 
+              data-key={key} 
+              onMouseOver={handleOnMouseOver} 
+              onMouseDown={handleOnMouseDown} 
+              className="selected"
+            ></td>);
+        } else {
+          cells.push(
+            <td 
+              key={key} 
+              data-key={key} 
+              onMouseOver={handleOnMouseOver} 
+              onMouseDown={handleOnMouseDown} 
+            ></td>);
+        }
       }
     }
 
