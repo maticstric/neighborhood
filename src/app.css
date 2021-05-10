@@ -7,15 +7,23 @@
   --light-purple: #c77dff;
 }
 
+@font-face {
+  font-family: 'Mukta';
+  src: local('Mukta'), url(./fonts/Mukta.ttf) format('truetype');
+}
+
 #app {                                                                          
   height: 100vh;                                                                
-  background: var(--dark-grey);                                                      
+  background-color: var(--dark-grey);                                                      
+  color: var(--light-grey);
+  font-family: Mukta;
   display: flex;                                                                
   justify-content: space-around;                                                
 }   
 
 #app > #center {                                                                
   display: flex;                                                                
+  width: 50%;
   flex-direction: column;                                                       
   text-align: center;                                                           
 } 
