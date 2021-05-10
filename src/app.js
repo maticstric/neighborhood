@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './app.css';
 
 import Table from './components/table/table.js';
+import Controls from './components/controls/controls.js';
+import Presets from './components/presets/presets.js';
 
 const App = (props) => {
   const [isMouseDown, setIsMouseDown] = useState(false);
@@ -28,13 +30,18 @@ const App = (props) => {
 
   return (
     <div id="app" onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
+      <Controls
+        setSize={setSize}
+      />
       <div id="center">
+        <h1>neighborhood</h1>
         <Table
           isMouseDown={isMouseDown}
           table={table}
           setTable={setTable}
         />
       </div>
+      <Presets />
     </div>
   );
 }

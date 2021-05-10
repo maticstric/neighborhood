@@ -1,0 +1,8 @@
+#presets-container {
+  max-height: 100%;
+  width: 22%;
+  margin-top: 50px; 
+  margin-bottom: 50px; 
+  border-radius: 10px;
+  background-color: var(--light-grey);
+}

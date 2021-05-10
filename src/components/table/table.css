@@ -1,18 +1,16 @@
 #table-container {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: 100%;
 }
 
 #table-container table {
-  border-spacing: 4px;
-  width: 400px;
-  height: 400px;
+  display: inline-block;
 }
 
 #table-container td {
   cursor: pointer;
-  border-radius: 3px;
   background-color: var(--light-grey);
 }
 

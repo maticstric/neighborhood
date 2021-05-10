@@ -41,8 +41,34 @@ const Table = (props) => {
     }
   }
 
+  const calculateBorderSpacing = (tableSize) => {
+    return Math.round(0.002 * tableSize * tableSize - 0.185 * tableSize + 6.281);
+  }
+
+  const calculateBorderRadius = (tableSize) => {
+    return Math.round(0.0025 * tableSize * tableSize - 0.23 * tableSize + 6.396);
+  }
+
+  if (props.table.length <= 0) {
+    return null;
+  }
+
   let tableJSX = [];
   let tableSize = Math.sqrt(props.table.length);
+
+  let borderSpacing = calculateBorderSpacing(tableSize);
+  let borderRadius = calculateBorderRadius(tableSize);
+  let cellSize = Math.floor(300 / tableSize);
+
+  const tdStyle = {
+    borderRadius: borderRadius + 'px',
+    width: cellSize,
+    height: cellSize
+  };
+
+  const tableStyle = {
+    borderSpacing: borderSpacing + 'px',
+  };
 
   for (let i = 0; i < tableSize; i++) {
     let cells = [];
@@ -57,6 +83,7 @@ const Table = (props) => {
             key={key} 
             data-key={key} 
             className="center"
+            style={tdStyle}
           ></td>);
       } else {
         if (props.table[index]) {
@@ -67,6 +94,7 @@ const Table = (props) => {
               onMouseOver={handleOnMouseOver} 
               onMouseDown={handleOnMouseDown} 
               className="selected"
+              style={tdStyle}
             ></td>);
         } else {
           cells.push(
@@ -75,6 +103,7 @@ const Table = (props) => {
               data-key={key} 
               onMouseOver={handleOnMouseOver} 
               onMouseDown={handleOnMouseDown} 
+              style={tdStyle}
             ></td>);
         }
       }
@@ -85,7 +114,7 @@ const Table = (props) => {
 
   return (
     <div id="table-container">
-      <table>
+      <table style={tableStyle}>
         <tbody>
           {tableJSX}
         </tbody>
