@@ -32,6 +32,7 @@ const App = (props) => {
     <div id="app" onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
       <Controls
         setSize={setSize}
+        table={table}
       />
       <div id="center">
         <h1>neighborhood</h1>
