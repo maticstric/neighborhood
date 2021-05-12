@@ -26,11 +26,14 @@
   border: 2px solid var(--dark-grey);
 }
 
-#controls-container textarea:hover, 
-textarea:active, 
-textarea:focus
-{
-  outline: 0px !important;
-  -webkit-appearance: none;
-  box-shadow: none !important;
+textarea:focus {
+  outline: 0px;
+}
+
+#controls-container > input {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  align-self: flex-end;
+  height: 30px;
+  width: 30px;
 }

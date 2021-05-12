@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './controls.css';
 
 import RangeSlider from '../../components/range-slider/range-slider.js'
 
+import CopySvg from '../../images/copy.svg';
+
 const Controls = (props) => {
   const [tableText, setTableText] = useState('');
+  const textAreaRef = useRef(null);
 
   useEffect(() => {
     let table = props.table;
@@ -26,6 +29,11 @@ const Controls = (props) => {
     setTableText(text);
   }, [props.table]);
 
+  const copyTextAreaToClipboard = () => {
+    textAreaRef.current.select();
+    document.execCommand('copy');
+  }
+
   return (
     <div id="controls-container">
       <h2>Controls</h2>
@@ -36,8 +44,13 @@ const Controls = (props) => {
         defaultValue={11}
         setSize={props.setSize}
       />
-      <textarea readOnly={true} value={tableText}></textarea>
-      <button>asdf</button>
+      <textarea ref={textAreaRef} readOnly={true} value={tableText}></textarea>
+      <input
+        type="image"
+        alt="copy"
+        src={CopySvg}
+        onClick={copyTextAreaToClipboard}
+      />
     </div>
   );
 }
