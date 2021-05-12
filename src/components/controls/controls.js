@@ -4,6 +4,7 @@ import './controls.css';
 import RangeSlider from '../../components/range-slider/range-slider.js'
 
 import CopySvg from '../../images/copy.svg';
+import GithubSvg from '../../images/github.svg';
 
 const Controls = (props) => {
   const [tableText, setTableText] = useState('');
@@ -45,12 +46,19 @@ const Controls = (props) => {
         setSize={props.setSize}
       />
       <textarea ref={textAreaRef} readOnly={true} value={tableText}></textarea>
-      <input
-        type="image"
-        alt="copy"
-        src={CopySvg}
-        onClick={copyTextAreaToClipboard}
-      />
+      <div id="bottom-buttons-container">
+        <a href="https://github.com/maticstric/neighborhood"
+           target="_blank"
+           rel="noreferrer">
+          <img src={GithubSvg} alt="github" />
+        </a>
+        <input
+          type="image"
+          alt="copy"
+          src={CopySvg}
+          onClick={copyTextAreaToClipboard}
+        />
+      </div>
     </div>
   );
 }
